@@ -1,72 +1,71 @@
-# PDF-Riding-AI
-Ai
+#include <stdio.h>
 
-#include <stdio.h>   // Includes input and output functions
-
-// Function to display the application menu
-void showMenu()
-{
-    printf("\n");
-    printf("====================================\n");
-    printf("       PDF READING TEACHER AI       \n");
-    printf("====================================\n");
-
-    printf("1. Read Study Material\n");
-    printf("2. Ask AI Teacher\n");
-    printf("3. Search Topic\n");
-    printf("4. Save Notes\n");
-    printf("5. Practice MCQ\n");
-    printf("6. Exit\n");
-
-    printf("====================================\n");
-}
-
-// Main function: execution starts here
 int main()
 {
-    int choice;  // Stores the user's selected option
+    int choice;
+    float temp, result;
 
-    // Keep showing the menu until the user exits
     do
     {
-        showMenu();  // Display the application menu
+        printf("\n===== TEMPERATURE CONVERTER =====\n");
+        printf("1. Celsius to Fahrenheit\n");
+        printf("2. Fahrenheit to Celsius\n");
+        printf("3. Celsius to Kelvin\n");
+        printf("4. Kelvin to Celsius\n");
+        printf("5. Fahrenheit to Kelvin\n");
+        printf("6. Kelvin to Fahrenheit\n");
+        printf("7. Exit\n");
 
-        // Ask the user to enter a choice
-        printf("\nEnter your choice: ");
+        printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        // Check which option the user selected
-        switch(choice)
+        if (choice >= 1 && choice <= 6)
+        {
+            printf("Enter temperature: ");
+            scanf("%f", &temp);
+        }
+
+        switch (choice)
         {
             case 1:
-                printf("\nOpening Study Material...\n");
+                result = (temp * 9 / 5) + 32;
+                printf("Result: %.2f F\n", result);
                 break;
 
             case 2:
-                printf("\nWelcome to AI Teacher!\n");
+                result = (temp - 32) * 5 / 9;
+                printf("Result: %.2f C\n", result);
                 break;
 
             case 3:
-                printf("\nTopic Search Selected.\n");
+                result = temp + 273.15;
+                printf("Result: %.2f K\n", result);
                 break;
 
             case 4:
-                printf("\nNotes Section Selected.\n");
+                result = temp - 273.15;
+                printf("Result: %.2f C\n", result);
                 break;
 
             case 5:
-                printf("\nPractice MCQ Selected.\n");
+                result = (temp - 32) * 5 / 9 + 273.15;
+                printf("Result: %.2f K\n", result);
                 break;
 
             case 6:
-                printf("\nThank you for using PDF Reading Teacher AI!\n");
+                result = (temp - 273.15) * 9 / 5 + 32;
+                printf("Result: %.2f F\n", result);
+                break;
+
+            case 7:
+                printf("Thank you for using the converter!\n");
                 break;
 
             default:
-                printf("\nInvalid choice! Please try again.\n");
+                printf("Invalid choice! Try again.\n");
         }
 
-    } while(choice != 6);  // Repeat until option 6 is selected
+    } while (choice != 7);
 
-    return 0;  // End the program successfully
+    return 0;
 }
